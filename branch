@@ -1,0 +1,16 @@
+function generateBinaryStrings(N)
+    result = [];
+    function branchAndBound(binaryString, index)
+        if index == N then
+            result = [result; binaryString];
+            return;
+        end
+        branchAndBound([binaryString, '0'], index + 1);
+        branchAndBound([binaryString, '1'], index + 1);
+    endfunction
+    branchAndBound('', 0);
+    disp(result);
+endfunction
+
+N = 3;
+generateBinaryStrings(N);
